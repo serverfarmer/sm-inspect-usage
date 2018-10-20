@@ -28,12 +28,11 @@ ignore_root() {
 
 out=/var/cache/farm
 path=/etc/local/.farm
-servers=`cat $path/virtual.hosts $path/physical.hosts $path/workstation.hosts |grep -vxFf $path/openvz.hosts |grep -v ^#`
 
 expand=$path/expand.json
 inspect=$path/inspect.root
 
-for server in $servers; do
+for server in `/opt/farm/ext/inspect-usage/utils/get-hosts.sh`; do
 
 	if [[ $server =~ ^[a-z0-9.-]+$ ]]; then
 		server="$server::"
