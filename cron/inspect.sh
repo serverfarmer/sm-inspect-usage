@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 . /opt/farm/scripts/init
 
 
@@ -25,7 +25,6 @@ ignore_root() {
 }
 
 
-
 out=/var/cache/farm
 path=/etc/local/.farm
 
@@ -34,18 +33,8 @@ inspect=$path/inspect.root
 
 for server in `/opt/farm/ext/inspect-usage/utils/get-hosts.sh`; do
 
-	if [[ $server =~ ^[a-z0-9.-]+$ ]]; then
-		server="$server::"
-	elif [[ $server =~ ^[a-z0-9.-]+[:][0-9]+$ ]]; then
-		server="$server:"
-	fi
-
-	host=$(echo $server |cut -d: -f1)
-	port=$(echo $server |cut -d: -f2)
-
-	if [ "$port" = "" ]; then
-		port=22
-	fi
+	host=`/opt/farm/ext/farm-manager/internal/decode.sh host $server`
+	port=`/opt/farm/ext/farm-manager/internal/decode.sh port $server`
 
 	sshkey=`/opt/farm/ext/keys/get-ssh-management-key.sh $host`
 	ignore=`ignore_root $inspect $host`
