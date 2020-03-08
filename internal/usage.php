@@ -17,6 +17,14 @@ $less_often_reports = array (
 	"/srv/mounts/external2",
 	"/srv/mounts/external3",
 	"/srv/mounts/external4",
+	"/srv/mounts/elements1",
+	"/srv/mounts/elements2",
+	"/srv/mounts/elements3",
+	"/srv/mounts/elements4",
+	"/srv/mounts/elements5",
+	"/srv/mounts/elements6",
+	"/srv/mounts/elements7",
+	"/srv/mounts/elements8",
 );
 
 
