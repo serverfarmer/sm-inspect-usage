@@ -20,8 +20,3 @@ if ! grep -q /opt/farm/ext/inspect-usage/cron /etc/crontab; then
 	echo "10 7 * * 1-6 root /opt/farm/ext/inspect-usage/cron/inspect.sh" >>/etc/crontab
 	echo "10 7 * * 7   root /opt/farm/ext/inspect-usage/cron/inspect.sh --force" >>/etc/crontab
 fi
-
-# transitional code
-if grep -q /opt/farm/ext/farm-inspector/cron/space.sh /etc/crontab; then
-	sed -i -e "/\/opt\/farm\/ext\/farm-inspector\/cron\/space.sh/d" /etc/crontab
-fi
