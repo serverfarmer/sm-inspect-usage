@@ -16,7 +16,7 @@ if [ ! -f /etc/local/.farm/expand.json ]; then
 	echo -n "{}" >/etc/local/.farm/expand.json
 fi
 
-if ! grep -q /opt/farm/ext/inspect-usage/cron /etc/crontab; then
-	echo "10 7 * * 1-6 root /opt/farm/ext/inspect-usage/cron/inspect.sh" >>/etc/crontab
-	echo "10 7 * * 7   root /opt/farm/ext/inspect-usage/cron/inspect.sh --force" >>/etc/crontab
+if ! grep -q /opt/farm/mgr/inspect-usage/cron /etc/crontab; then
+	echo "10 7 * * 1-6 root /opt/farm/mgr/inspect-usage/cron/inspect.sh" >>/etc/crontab
+	echo "10 7 * * 7   root /opt/farm/mgr/inspect-usage/cron/inspect.sh --force" >>/etc/crontab
 fi

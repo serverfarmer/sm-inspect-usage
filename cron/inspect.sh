@@ -31,7 +31,7 @@ path=/etc/local/.farm
 expand=$path/expand.json
 inspect=$path/inspect.root
 
-for server in `/opt/farm/ext/inspect-usage/utils/get-hosts.sh`; do
+for server in `/opt/farm/mgr/inspect-usage/utils/get-hosts.sh`; do
 
 	host=`/opt/farm/ext/farm-manager/internal/decode.sh host $server`
 	port=`/opt/farm/ext/farm-manager/internal/decode.sh port $server`
@@ -40,7 +40,7 @@ for server in `/opt/farm/ext/inspect-usage/utils/get-hosts.sh`; do
 	ignore=`ignore_root $inspect $host`
 	file=`create_json $out $host`
 
-	/opt/farm/ext/inspect-usage/internal/usage.php $ignore $host $port root $sshkey $out/$file $expand $@ \
+	/opt/farm/mgr/inspect-usage/internal/usage.php $ignore $host $port root $sshkey $out/$file $expand $@ \
 		|/opt/farm/ext/versioning/save.sh daily 20 $out $file &
 
 done
@@ -48,5 +48,5 @@ done
 ignore=`ignore_root $inspect $HOST`
 file=`create_json $out $HOST`
 
-/opt/farm/ext/inspect-usage/internal/usage.php $ignore localhost - - - $out/$file $expand $@ \
+/opt/farm/mgr/inspect-usage/internal/usage.php $ignore localhost - - - $out/$file $expand $@ \
 	|/opt/farm/ext/versioning/save.sh daily 20 $out $file
