@@ -33,8 +33,8 @@ inspect=$path/inspect.root
 
 for server in `/opt/farm/mgr/inspect-usage/utils/get-hosts.sh`; do
 
-	host=`/opt/farm/ext/farm-manager/internal/decode.sh host $server`
-	port=`/opt/farm/ext/farm-manager/internal/decode.sh port $server`
+	host=`/opt/farm/mgr/farm-manager/internal/decode.sh host $server`
+	port=`/opt/farm/mgr/farm-manager/internal/decode.sh port $server`
 
 	sshkey=`/opt/farm/ext/keys/get-ssh-management-key.sh $host`
 	ignore=`ignore_root $inspect $host`
