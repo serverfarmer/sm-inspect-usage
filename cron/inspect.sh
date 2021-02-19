@@ -26,7 +26,7 @@ ignore_root() {
 
 
 out=/var/cache/farm
-path=/etc/local/.farm
+path=~/.farm
 
 expand=$path/expand.json
 inspect=$path/inspect.root
