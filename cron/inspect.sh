@@ -25,8 +25,8 @@ ignore_root() {
 }
 
 
-out=/var/cache/farm
-path=~/.farm
+out=~/.serverfarmer/inspection
+path=~/.serverfarmer/inventory
 
 expand=$path/expand.json
 inspect=$path/inspect.root

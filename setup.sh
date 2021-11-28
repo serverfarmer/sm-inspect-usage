@@ -5,15 +5,15 @@
 /opt/farm/scripts/setup/extension.sh sf-php
 
 echo "setting up base directories and files"
-mkdir -p   /var/cache/farm ~/.farm
-chmod 0710 /var/cache/farm
-chown root:www-data /var/cache/farm
+mkdir -p ~/.serverfarmer/inspection ~/.serverfarmer/inventory
+chmod 0710 ~/.serverfarmer ~/.serverfarmer/inspection
+chown root:www-data ~/.serverfarmer ~/.serverfarmer/inspection
 
-chmod 0700 ~/.farm
-touch      ~/.farm/inspect.root
+chmod 0700 ~/.serverfarmer/inventory
+touch      ~/.serverfarmer/inventory/inspect.root
 
-if [ ! -f ~/.farm/expand.json ]; then
-	echo -n "{}" >~/.farm/expand.json
+if [ ! -f ~/.serverfarmer/inventory/expand.json ]; then
+	echo -n "{}" >~/.serverfarmer/inventory/expand.json
 fi
 
 if ! grep -q /opt/farm/mgr/inspect-usage/cron /etc/crontab; then
